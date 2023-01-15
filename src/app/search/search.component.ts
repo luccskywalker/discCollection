@@ -1,5 +1,5 @@
 const INITIALINDEX = 1;
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs';
 import { gameItem, gameList, RawgService } from '../services/rawg/rawg.service';
 
