@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs';
 import { gameItem, gameList, RawgService } from '../services/rawg/rawg.service';
 import { UserLibraryService } from '../user-library/user-library.service';
