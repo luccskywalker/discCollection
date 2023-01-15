@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { DiscModule } from './disc/disc.module';
 import { HomeModule } from './home/home.module';
 import { SearchModule } from './search/search.module';
-import { RawgRouteRoutes } from './services/rawg/rawg-route.routing';
+import { RawgRouteRoutes } from './services/rawg/rawg.routing';
 import { RawgModule } from './services/rawg/rawg.module';
 import { UserLibraryModule } from './user-library/user-library.module';
 

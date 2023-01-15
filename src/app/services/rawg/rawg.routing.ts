@@ -7,7 +7,7 @@ import { UserLibraryComponent } from 'src/app/user-library/user-library.componen
 const apikey = '0a799dff77744cf0a8fd7ea3c76db3e2';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'userlibrary', component: UserLibraryComponent },
 ];

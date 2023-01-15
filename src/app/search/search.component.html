@@ -29,11 +29,11 @@
   <div id="games" *ngFor="let game of searchResults">
     <app-game [games]="game"></app-game>
   </div>
-  <div class="pagination py-2 flex flex-center justify-center">
+  <div class="py-2 flex flex-center justify-center">
     <a
       (click)="previous()"
-      href="#"
       class="
+        cursor-pointer
         fundo
         inline-flex
         items-center
@@ -77,9 +77,9 @@
     </ng-container>
     <a
       (click)="next()"
-      href="#"
       class="
         fundo
+        cursor-pointer
         inline-flex
         items-center
         px-4
