@@ -1,0 +1,59 @@
+<ng-container>
+  <div class="grid grid-cols-5">
+    <div *ngFor="let gameItem of games.results">
+      <div (click)="openModal(gameItem)" id="games">
+        <div class="squareGame animated bounceInLeft">
+          <div
+            class="imgGame"
+            [ngStyle]="{
+              'background-image': 'url(' + gameItem.background_image + ')'
+            }"
+          ></div>
+          <div class="gameText">{{ gameItem["name"] }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div
+  *ngIf="showModal"
+  class="
+    modal
+    overflow-x-hidden overflow-y-auto
+    fixed
+    inset-0
+    z-50
+    outline-none
+    focus:outline-none
+    justify-center
+    items-center
+    flex
+  "
+>
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div
+      class="
+        border-0
+        relative
+        flex flex-col
+        w-full
+        outline-none
+        focus:outline-none
+      "
+    >
+      <!--body-->
+      <div class="gameDetails">
+        <app-disc [gameSelected]="gameItemModal"></app-disc>
+      </div>
+      <!--footer-->
+      <button (click)="toggleModal()" class="close">
+        <img
+          src="   https://cdn-icons-png.flaticon.com/512/7605/7605658.png "
+        />
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

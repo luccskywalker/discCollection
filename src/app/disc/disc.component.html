@@ -1,0 +1,77 @@
+<div (click)="saveToLibrary()" id="heart-container">
+  <input type="checkbox" id="toggle" />
+  <div id="heart" [class.favourite]="gameSelected.favourite"></div>
+</div>
+
+<div id="game-card" class="game">
+  <div class="game__data">
+    <div class="game__poster">
+      <span class="game__poster--fill"
+        ><img class="img-container" [src]="image"
+      /></span>
+      <span class="game__poster--featured">
+        <div class="disc-container">
+          <div class="disc">
+            <div class="spinning-cd">
+              <img class="img-container" [src]="image" />
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class="game__details">
+      <h4 class="game__title">{{ gameSelected.name }}</h4>
+      <ul class="game__tags list--inline">
+        <li class="game__rated">{{ gameSelected.esrb_rating.name }}</li>
+        <li class="game__year">{{ gameSelected.released }}</li>
+        <li class="game__genre">
+          <ng-container *ngFor="let genre of gameSelected.genres">
+            {{ genre.name }}
+          </ng-container>
+        </li>
+      </ul>
+      <p
+        class="game__plot scrollbar"
+        [innerHTML]="gameSelected.description"
+      ></p>
+      <div class="game__credits">
+        <p>
+          <strong>Developers</strong>
+
+          <ng-container *ngFor="let developer of gameSelected.developers">
+            {{ developer.name }}
+          </ng-container>
+        </p>
+        <p>
+          <strong>Publishers:</strong>
+          <ng-container *ngFor="let publisher of gameSelected.publishers">
+            {{ publisher.name }}
+          </ng-container>
+        </p>
+        <p><strong>Platforms:</strong></p>
+        <ul class="game__actors">
+          <ng-container *ngFor="let platforms of gameSelected.platforms">
+            {{ platforms.platform.name }}
+          </ng-container>
+        </ul>
+        <p class="game__tags-list">
+          <strong>Tags:</strong>
+          <ng-container *ngFor="let tag of gameSelected.tags">
+            {{ tag.name }}
+          </ng-container>
+        </p>
+      </div>
+    </div>
+    <div class="game__error" style="display: none"><h2></h2></div>
+  </div>
+  <input
+    id="movie-search"
+    type="text"
+    placeholder="Enter a movie title"
+    autocomplete="off"
+    class="game__search"
+  />
+  <div class="results-list">
+    <div role="tablist" class="list-group list-group-flush"></div>
+  </div>
+</div>

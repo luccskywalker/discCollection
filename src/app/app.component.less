@@ -1,0 +1,60 @@
+.list {
+  overflow: hidden;
+}
+
+.side-menu {
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 50px;
+  list-style-type: none;
+  overflow: hidden;
+  transition: width 0.3s;
+  z-index: 9;
+}
+
+.side-menu:hover {
+  width: 300px;
+  background: #275dff;
+}
+
+.side-menu li {
+  width: 300px;
+}
+
+.side-menu li span {
+  font-size: 1rem;
+  margin: 20px 20px 0 5%;
+}
+
+.side-menu li a {
+  display: block;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #fff;
+  height: 60px;
+}
+.active {
+  animation: gradient 3s ease infinite;
+  background: linear-gradient(-45deg, #006fcd, #23a6d5) fixed;
+}
+.side-menu li a:hover,
+.side-menu li:first-child a {
+  display: block;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

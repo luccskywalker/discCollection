@@ -1,0 +1,219 @@
+.game-description {
+  margin: 2% 2% 2% 2%;
+  width: 50vw;
+  height: 50vh;
+  align-items: center;
+}
+
+.game-info {
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  position: relative;
+  color: black;
+  background-color: #ededed;
+  border-radius: 0 8% 8% 0;
+}
+
+.text-description {
+  color: black;
+  width: 80%;
+  height: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.disc-container {
+  position: relative;
+  left: 45px;
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.disc-cover {
+  top: -15%;
+  left: 20%;
+  position: relative;
+  background-color: blue;
+  height: 15%;
+  width: 69%;
+  border-radius: 0 0 100% 100%;
+  text-align: center;
+}
+
+.spinning-cd {
+  width: 100%;
+  height: 100%;
+}
+
+.disc {
+  width: 300px;
+  height: 300px;
+  background-color: burlywood;
+  border-radius: 50%;
+  border: whitesmoke 3px solid;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.game {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 800px;
+  background-color: white;
+  border-radius: 1%;
+  box-shadow: rgba(black, 0.2) 0 30px 18px -24px;
+  &__data {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 500px;
+
+    @media (min-width: 2px) {
+      flex-direction: row;
+    }
+  }
+  &__tags {
+    font-size: 0.75em;
+    color: darkgray;
+  }
+  &__poster {
+    position: relative;
+    display: flex;
+    width: 100%;
+    transform: translateZ(0);
+
+    @media (min-width: 2px) {
+      margin-right: 2px;
+      width: 50%;
+    }
+    &--fill {
+      position: absolute;
+      overflow: hidden;
+      top: -80%;
+      bottom: -20%;
+      left: -20%;
+      width: 150%;
+      height: 150%;
+      background-color: gainsboro;
+      transform: rotate(5deg);
+      @media (min-width: 2px) {
+        top: -20%;
+        width: 100%;
+      }
+      img {
+        filter: blur(2px);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transform: scale(1.4);
+      }
+    }
+    &--featured {
+      position: relative;
+      display: block;
+      align-self: center;
+      width: 20%;
+      border-radius: 0.8em;
+      z-index: 1;
+
+      img {
+        display: block;
+        width: 100%;
+        box-shadow: rgba(black, 0.6) 0 6px 12px -6px;
+        &[src="N/A"] {
+          min-height: 206px;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &__details {
+    position: relative;
+    right: 30px;
+    color: black;
+    flex: 1;
+    margin-bottom: 2%;
+  }
+  &__title {
+    font-size: 1.5em;
+    margin-bottom: 2%;
+  }
+
+  &__plot {
+    width: 100%;
+    height: 40%;
+    overflow: overlay;
+    margin: 2px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 2%;
+  }
+  &__tags-list {
+    height: 10%;
+    width: auto;
+    overflow: hidden;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 4%;
+  }
+}
+
+#heart-container {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  margin-top: 10px;
+  position: absolute;
+  top: -25px;
+  left: -20px;
+}
+
+#heart {
+  position: absolute;
+  z-index: 2;
+  background: url("https://abs.twimg.com/a/1454637594/img/t1/web_heart_animation.png");
+  background-position: 0px;
+  background-repeat: no-repeat;
+  height: 80%;
+  width: 80%;
+  pointer-events: none;
+}
+
+.favourite {
+  animation: heart-animate 0.8s steps(28) forwards;
+}
+
+//Here, we're using a checkbox to toggle the animation and just scaling it to be massive to cover our desired click area. There might be a more elegant way to do this, but this makes it easy imo.
+#toggle {
+  opacity: 0; //Change to see checkbox area
+  transform: scale(3);
+  position: absolute;
+  &:checked + #heart {
+    //Steps splits the animation into equal keyframes vs. a smooth slide
+    //Forwards keeps the animation on it's final state
+    animation: heart-animate 0.8s steps(28) forwards;
+  }
+}
+
+@keyframes heart-animate {
+  100% {
+    background-position: -2800px;
+  }
+}

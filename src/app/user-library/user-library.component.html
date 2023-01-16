@@ -1,0 +1,34 @@
+<ng-container *ngIf="!libraryEmpty">
+  <div class="flex flex-line justify-center items-center">
+    <img src="../../assets/illustrations/5930249.png" />
+    <div>
+      <h2>Your Library is empty</h2>
+      <h3>put something in it.</h3>
+      <a routerLink="/search" routerLinkActive="active"
+        ><button
+          class="
+            fundo
+            btn
+            inline-block
+            center
+            px-3
+            py-1
+            text-sm
+            font-semibold
+            mr-2
+            mb-2
+            size
+          "
+        >
+          Search
+        </button></a
+      >
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="libraryEmpty">
+  <div class="flex overflow-hidden flex-wrap pt-10">
+    <app-game [games]="userGameList"></app-game>
+  </div>
+</ng-container>

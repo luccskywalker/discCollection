@@ -1,0 +1,128 @@
+<input
+  (keyup.enter)="search()"
+  [(ngModel)]="searchText"
+  type="text"
+  id="last_name"
+  class="
+    absolute
+    bg-gray-50
+    border border-gray-300
+    text-gray-900 text-sm
+    rounded-lg
+    focus:ring-blue-500
+    focus:border-blue-500
+    block
+    right-0
+    h-10
+    w-40
+    p-2.5
+    mt-4
+    mr-2
+    inset-y-0
+    right-0
+  "
+  placeholder="Search"
+  required
+/>
+
+<ng-container *ngIf="!loading && !!searchResults">
+  <div id="games" *ngFor="let game of searchResults">
+    <app-game [games]="game"></app-game>
+  </div>
+  <div class="py-2 flex flex-center justify-center">
+    <a
+      (click)="previous()"
+      class="
+        cursor-pointer
+        fundo
+        inline-flex
+        items-center
+        px-4
+        py-2
+        mr-3
+        text-sm
+        font-medium
+        text-white
+        bg-white
+        border border-gray-300
+        rounded-lg
+        hover:bg-gray-100
+        hover:text-white
+        dark:bg-gray-800
+        dark:border-gray-700
+        dark:text-gray-700
+        dark:hover:bg-gray-700
+        dark:hover:text-white
+      "
+    >
+      <svg
+        aria-hidden="true"
+        class="w-5 h-5 mr-2"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      Previous
+    </a>
+    <ng-container *ngIf="searchResults[0]">
+      <span class="px-4"
+        >You are on page {{ searchIndex }} of {{ searchResults[0].count }}</span
+      >
+    </ng-container>
+    <a
+      (click)="next()"
+      class="
+        fundo
+        cursor-pointer
+        inline-flex
+        items-center
+        px-4
+        py-2
+        text-sm
+        font-medium
+        text-white
+        bg-white
+        border border-gray-300
+        rounded-lg
+        hover:bg-gray-100
+        hover:text-gray-700
+        dark:bg-gray-800
+        dark:border-gray-700
+        dark:text-gray-700
+        dark:hover:bg-gray-700
+        dark:hover:text-white
+      "
+    >
+      Next
+      <svg
+        aria-hidden="true"
+        class="w-5 h-5 ml-2"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!searchResults">
+  <div class="flex flex-line justify-center items-center">
+    <img src="../../assets/illustrations/4273539.png" />
+    <div>
+      <h2>Nothing to see here yet</h2>
+      <h3>Please search something.</h3>
+    </div>
+  </div>
+</ng-container>
