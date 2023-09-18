@@ -1,0 +1,61 @@
+#games {
+  top: 0.5em;
+  left: 0;
+  padding: 2em;
+  z-index: 99;
+}
+
+.squareGame {
+  height: 11em;
+  width: 11em;
+  vertical-align: top;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.squareGame:hover {
+  height: 16.5em;
+  width: 15em;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+.squareGame:hover .imgGame {
+  height: 85%;
+}
+
+.imgGame {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gameText {
+  color: white;
+  font-family: arial;
+  text-align: center;
+  line-height: 2.4em;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.gameTitle {
+  position: absolute;
+  color: white;
+  font-size: 1.2em;
+  font-family: Arial;
+  transform: translate(13.2em, -1.5em);
+}
+.close {
+  background-color: white;
+  border-radius: 50%;
+  fill: white;
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  height: 50px;
+  width: 50px;
+}
